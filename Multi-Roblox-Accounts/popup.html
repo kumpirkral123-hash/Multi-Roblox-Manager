@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title></title>
+  <link rel="stylesheet" href="theme.css" />
+  <link rel="stylesheet" href="styles/popup.css" />
+  <link rel="stylesheet" href="styles/accounts.css" />
+</head>
+<body>
+  <div class="mrm-bg-glow" aria-hidden="true"></div>
+  <div class="ldr-wrap" id="ldr" aria-hidden="false">
+    <div class="ldr-cnt">
+      <span class="ldr"></span>
+      <div class="ldr-txt" id="ldrTxt"></div>
+    </div>
+  </div>
+
+  <div id="mrm-tools-stub" class="mrm-tools-stub" hidden aria-hidden="true">
+    <div class="cnt" id="mainCnt">
+      <div class="shell" id="mainShell">
+        <div class="brand" aria-hidden="true">
+          <span class="brand-mark">
+            <svg class="mrm-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="28" height="28" aria-hidden="true">
+              <rect width="64" height="64" fill="#000000"/>
+              <text x="32" y="46" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" text-anchor="middle">M</text>
+            </svg>
+          </span>
+        </div>
+
+        <div class="hdr" id="hdrTitle"></div>
+        <div id="pageContext" class="page-context hidden" aria-live="polite">
+          <div class="page-context-card">
+            <img id="contextThumb" class="page-context-thumb" width="88" height="88" alt="" />
+            <div class="page-context-meta">
+              <div class="page-context-label" id="contextLabel">This page</div>
+              <div class="page-context-title" id="contextTitle"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sub" id="hdrSub"></div>
+
+        <div id="studioLinkOnly" class="hidden">
+          <button type="button" id="btnStudio" class="btn btn-primary"><span class="btn-glow" aria-hidden="true"></span><span class="btn-label">Open tool</span></button>
+        </div>
+
+        <div id="downloadFlow" class="flow-block">
+          <label class="lbl" for="idInp" id="idLbl">ID</label>
+          <div class="inp-wrap" id="inpWrap">
+            <input
+              type="text"
+              id="idInp"
+              class="inp"
+              inputmode="numeric"
+              autocomplete="off"
+              spellcheck="false"
+              maxlength="22"
+            />
+          </div>
+
+          <div id="followerBlock" class="follower-block hidden" aria-hidden="true">
+            <label class="lbl" for="followerInp">Followers Bot</label>
+            <p class="follower-hint">Choose a preset or enter any amount from 1,500 to 100,000.</p>
+            <div class="follower-chips" role="group" aria-label="Follower presets">
+              <button type="button" class="chip" data-follow="1500">1.5k</button>
+              <button type="button" class="chip" data-follow="5000">5k</button>
+              <button type="button" class="chip" data-follow="10000">10k</button>
+              <button type="button" class="chip" data-follow="25000">25k</button>
+              <button type="button" class="chip" data-follow="50000">50k</button>
+              <button type="button" class="chip" data-follow="100000">100k</button>
+            </div>
+            <input
+              type="number"
+              id="followerInp"
+              class="inp follower-inp"
+              min="1500"
+              max="100000"
+              step="1"
+              placeholder="e.g. 15000"
+              inputmode="numeric"
+            />
+          </div>
+
+          <button type="button" id="btnRun" class="btn btn-primary">
+            <span class="btn-glow" aria-hidden="true"></span>
+            <span class="btn-label">Start</span>
+          </button>
+        </div>
+
+        <div id="log" class="msg-log" role="status" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mrm-pane is-active" data-mrm-pane="accounts">
+    <div class="acc-shell">
+      <div class="acc-header-brand">
+        <div class="acc-brand-mark" aria-hidden="true">
+          <svg class="mrm-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="32" height="32" aria-hidden="true">
+            <rect width="64" height="64" fill="#000000"/>
+            <text x="32" y="46" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" text-anchor="middle">M</text>
+          </svg>
+        </div>
+        <div class="acc-brand-text">
+          <div class="acc-product-title">Multi Roblox Manager</div>
+          <div class="acc-product-tag">Accounts · Launch</div>
+        </div>
+        <button type="button" class="acc-add-btn" id="acc-add-btn">
+          <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 1.5v9"></path><path d="M1.5 6h9"></path></svg>
+          <span class="acc-add-btn-label">Add Account</span>
+        </button>
+      </div>
+
+      <div class="acc-status-row">
+        <div class="acc-status-pair">
+          <span class="acc-status-dot acc-status-dot--on" aria-hidden="true"></span>
+          <span id="acc-online-n">0</span><span class="acc-status-label"> online</span>
+          <span class="acc-status-sep" aria-hidden="true"></span>
+          <span class="acc-status-dot acc-status-dot--off" aria-hidden="true"></span>
+          <span id="acc-offline-n">0</span><span class="acc-status-label"> offline</span>
+        </div>
+        <span class="acc-device-pill">On your device</span>
+      </div>
+
+      <div class="acc-section-label">Accounts <span class="acc-roster-count" id="mrm-tab-acc-count">0</span></div>
+
+      <div class="acc-list" id="acc-list" role="list"></div>
+
+      <div class="acc-launch-all">
+        <div class="acc-launch-all-text">
+          <div class="acc-launch-all-title">Launch all</div>
+          <div class="acc-launch-all-sub">Open Roblox with Multiple Roblox for whoever is signed in here.</div>
+        </div>
+        <button type="button" class="acc-launch-btn acc-launch-all-btn" id="acc-launch-all-btn" disabled>
+          <svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 1.5l8 4.5-8 4.5V1.5z"></path></svg>
+          Launch all
+        </button>
+      </div>
+
+      <div class="acc-footer-bar">
+        <button type="button" class="acc-foot-btn" id="acc-select-all-btn">Select all</button>
+        <button type="button" class="acc-foot-btn" id="acc-clear-sel-btn" disabled>Clear</button>
+        <button type="button" class="acc-foot-btn acc-foot-btn--primary" id="acc-launch-selected-btn" disabled>
+          <svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M2 1.5l8 4.5-8 4.5V1.5z"></path></svg>
+          Launch selected
+        </button>
+      </div>
+
+      <div class="acc-log" id="acc-log" role="status" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <div class="res" id="resOk" aria-hidden="true">
+    <div class="shell shell--compact">
+      <div class="suc-ring" aria-hidden="true">
+        <svg class="suc-ring-img mrm-mark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40" aria-hidden="true">
+          <rect width="64" height="64" fill="#000000"/>
+          <text x="32" y="46" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="700" text-anchor="middle">M</text>
+        </svg>
+      <div class="suc">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+          <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        Done
+      </div>
+      <div class="suc-sub" id="sucSub"></div>
+      <button type="button" class="back-btn" id="backBtn">Back</button>
+    </div>
+  </div>
+
+
+  <script src="lib/shared-core.js"></script>
+  <script src="scripts/accounts-manager.js"></script>
+</body>
+</html>

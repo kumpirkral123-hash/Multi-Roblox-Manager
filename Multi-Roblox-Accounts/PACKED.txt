@@ -1,0 +1,5 @@
+Multi Roblox Manager pack
+Manifest version: 1.6.0
+Packed UTC 2026-09-19 20:38:31
+Output zip: Multi Roblox Account.zip
+Layout: bundled (shared-core + shared-sw + accounts-manager)

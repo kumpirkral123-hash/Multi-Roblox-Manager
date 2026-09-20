@@ -1,0 +1,29 @@
+/* Multi Roblox Manager — black monochrome theme */
+:root {
+  --mrm-bg-deep: #000000;
+  --mrm-bg-base: #050505;
+  --mrm-bg-card: rgba(12, 12, 12, 0.94);
+  --mrm-bg-card-solid: #0a0a0a;
+  --mrm-border: rgba(255, 255, 255, 0.1);
+  --mrm-border-hot: rgba(255, 255, 255, 0.22);
+  --mrm-text: rgba(255, 255, 255, 0.92);
+  --mrm-text-2: rgba(255, 255, 255, 0.58);
+  --mrm-text-3: rgba(255, 255, 255, 0.38);
+  --mrm-violet: #fafafa;
+  --mrm-violet-bright: #ffffff;
+  --mrm-violet-deep: #d4d4d4;
+  --mrm-magenta: #e5e5e5;
+  --mrm-green: #4ade80;
+  --mrm-grad-primary: linear-gradient(135deg, #f4f4f5 0%, #d4d4d8 52%, #a1a1aa 100%);
+  --mrm-grad-hot: linear-gradient(135deg, #ffffff 0%, #e4e4e7 45%, #d4d4d8 100%);
+  --mrm-grad-surface: linear-gradient(165deg, rgba(16, 16, 16, 0.98) 0%, rgba(0, 0, 0, 1) 100%);
+  --mrm-glass: rgba(8, 8, 8, 0.82);
+  --mrm-shadow: 0 12px 40px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --mrm-shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --mrm-radius-lg: 22px;
+  --mrm-radius-md: 14px;
+  --mrm-radius-sm: 10px;
+  --mrm-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --mrm-font: 'Segoe UI', system-ui, -apple-system, 'Inter', sans-serif;
+  --mrm-font-mono: ui-monospace, 'JetBrains Mono', 'Cascadia Code', monospace;
+}
